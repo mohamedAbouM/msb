@@ -1,0 +1,30 @@
+
+<div class="row">
+    <div class="col-md-12 my-1">    
+      <h1> List of Users</h1>
+      <span class="badge ml-3" ngClass="{
+          'badge-primary':usersResult,
+          'badge-danger':!usersResult
+        ">
+        {{usersResult.length}}
+      </span>
+    </div>
+</div>
+<div class ="row">
+    <div class="col-md-12 my-4">
+      <app-search my-title="Search user" (searchItemEvent)="getUsersRecherches($event)"></app-search>
+    </div>
+ </div>
+<div class ="row">
+    <div class="card col-md-4"  *ngFor="let user of usersResult; index as i, even as e , odd as o , first as f , last as l">
+       <app-panel>
+         <div class="body">
+           <a [href]="user.html_url" class="btn btn-link"></a>
+         </div>
+         <div class="heading">
+           {{user.login}}
+         </div>
+         <img class="card-img-top" [src]="user.avatar_url"/>
+       </app-panel>
+    </div>
+</div>

@@ -1,0 +1,61 @@
+
+<h1>List of courses</h1>
+<!--button class="btn btn-primary">Atos</button-->
+<!--app-navbar></!app-navbar-->
+<input (keyup.enter) ="addCourse()" class="form-control" type="text" [(ngModel)]="myCourse.name">
+
+<button *ngIf="!editable" class="btn btn-primary btn-block my-2" (click)="addCourse()"> <i class="fa fa-send"></i>save</button>
+<button *ngIf="editable" class="btn btn-warning btn-block my-2" (click)="updateCourse()"> <i class="fa fa-send"></i>update</button>
+
+<!-- <img [src]="myPicture"/> -->
+
+<button type="button" (click) ="changeView()" class="btn my-1"><i [ngClass]="{'fa fa-grid':cardview, 'fa fa-list':!cardview}"></i></button>
+<div *ngIf="cardview">
+    <div class ="row">
+        <div class="card col-md-4"  *ngFor="let course of courses; index as i, even as e , odd as o , first as f , last as l">
+            <img class="card-img-top" src="holder.js/100x180/" alt="">
+            <div class="card-body">
+                <h4 class="card-title">{{course.name}}</h4>
+                <div class="card-text"><i [ngStyle]="{
+                    'color' : course.active ? 'green' : 'red',
+                    'font-size' : course.active ? '30px' : '40px'
+                }" class="fa" [ngClass]="{
+                    'fa-battery-full' : course.active ,
+                    'fa-battery-empty' : !course.active
+                    }"></i>
+                    {{course.name}}
+                    <div class="text-right">
+                        <button class="btn btn-warning btn-sm mr-1" (click)="editCourse(course)"><i class="fa fa-pencil"></i></button>
+                        <button class="btn btn-danger btn-sm" (click)="deleteCourse(i)"><i class="fa fa-trash"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+</div>
+
+<ul class="list-group" *ngIf="!cardview">
+         <li *ngFor="let course of courses; index as i, even as e , odd as o , first as f , last as l" class="list-group-item"
+            [class.list-group-item-dark] = "o">
+                    <i [ngStyle]="{
+                        'color' : course.active ? 'green' : 'red',
+                        'font-size' : course.active ? '30px' : '40px'
+                    }" 
+                    class="fa" 
+                    [ngClass]="{
+                        'fa-battery-full' : course.active ,
+                        'fa-battery-empty' : !course.active
+                        }"></i>                
+                {{course.name}}
+                <div class="text-right">
+                    <button class="btn btn-warning btn-sm mr-1" (click)="editCourse(course)"><i class="fa fa-pencil"></i></button>
+                    <button class="btn btn-danger btn-sm" (click)="deleteCourse(i)"><i class="fa fa-trash"></i></button>
+                </div>
+         </li>
+
+
+</ul>
+
+

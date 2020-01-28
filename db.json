@@ -1,0 +1,49 @@
+{
+  "posts": [
+    {
+      "title": "fsd",
+      "body": "sdsd",
+      "id": 2,
+      "active": true,
+      "like": 0,
+      "deslike": 0,
+      "vote": {
+        "dislike": 18,
+        "like": 22
+      }
+    },
+    {
+      "title": "java",
+      "body": "java",
+      "id": 4,
+      "active": true,
+      "like": null,
+      "vote": {
+        "dislike": 13,
+        "like": 12
+      }
+    },
+    {
+      "title": "sql",
+      "body": "sql data abse",
+      "id": 5,
+      "vote": {
+        "dislike": 10,
+        "like": 19
+      }
+    },
+    {
+      "title": "dfds",
+      "body": "fdsffsfsdfsd",
+      "id": 6,
+      "vote": {
+        "like": 11,
+        "dislike": 10
+      }
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}
